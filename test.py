@@ -1,7 +1,14 @@
 import requests
+import json
 
-data = {"email": "hades1887@yandex.ru", "password": "V!ka1234"}
+params = {"buildingIds[]": 121}
 headers = {"content-type": "application/json"}
-response = requests.post("https://stagingapi.worklib.io/auth/login", headers=headers, data=data)
+response = requests.get("https://qa-api.worklib.io/buildings/details", headers=headers, params=params)
 
+print(response.status_code)
+print(response.raise_for_status())
+print(response.url)
 print(response.json())
+
+
+
